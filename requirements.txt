@@ -1,3 +1,4 @@
+discord.py==1.7.3
 googletrans==3.1.0a0
 praw ==7.4.0
 pytz ==2021.3
