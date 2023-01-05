@@ -17,12 +17,11 @@ import pyfiglet
 import termcolor
 import requests, json
 import openai
-from dotenv import load_dotenv
-load_dotenv()
 
 
 
-openai.api_key = os.getenv['OPENAI_API_KEY']
+
+openai.api_key = "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"
 
 
 
@@ -33,14 +32,14 @@ client = commands.Bot(command_prefix='&')
 
 # definition column
 translator = Translator()
-t = TenGiphPy.Tenor(token=os.getenv['GIPHY_TOKEN'])
+t = TenGiphPy.Tenor(token="41QVLZGFS5MZ")
 
 status = cycle(['Not your average cat', 'Why are you looking here'])
 
 red = praw.Reddit(client_id="Iu71QgycjWkEetYzLwzssg",
-                  client_secret=os.getenv['REDDIT_SECRET'],
+                  client_secret="MHNVy7OfJDdr2GzCVEkaddsUZPlejA",
                   username="Trinity_010",
-                  password=os.getenv['REDDIT_PASS'],
+                  password="newuserhentai",
                   user_agent="Chrome",
                   check_for_async=False)
 
@@ -728,5 +727,5 @@ async def change_status():
 
 keep_alive()
 
-my_secret = str(os.getenv['TOKEN'])
+my_secret = "NzQ1OTk3NDkwMTYzMDIzOTEy.GLB0Rc.GB-eBSD60WRjVHIja4AABzzIVDC9ihrLqIOdoQ"
 client.run(my_secret, bot=True)
