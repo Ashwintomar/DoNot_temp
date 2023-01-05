@@ -39,7 +39,7 @@ status = cycle(['Not your average cat', 'Why are you looking here'])
 red = praw.Reddit(client_id="Iu71QgycjWkEetYzLwzssg",
                   client_secret="MHNVy7OfJDdr2GzCVEkaddsUZPlejA",
                   username="Trinity_010",
-                  password="newuserhentai",
+                  password="Chun121.ez",
                   user_agent="Chrome",
                   check_for_async=False)
 
