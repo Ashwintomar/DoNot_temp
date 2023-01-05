@@ -727,5 +727,5 @@ async def change_status():
 
 keep_alive()
 
-my_secret = "ODQzODQxMjkxMjIwNjgwNzE0.GE3z2G.4TkjbIbAEt4Yzp568NNfiIUo0-hH0k5wSLzLII"
+my_secret = "MTA2MDMyNDkyOTYxNjIyODQ0Mg.GziiGd.lRKFfyzMYmdOo8zg5QwAwypFcm2w7bLxxiX97k"
 client.run(my_secret, bot=True)
