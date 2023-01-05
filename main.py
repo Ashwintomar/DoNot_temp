@@ -43,7 +43,7 @@ red = praw.Reddit(client_id="Iu71QgycjWkEetYzLwzssg",
                   user_agent="Chrome",
                   check_for_async=False)
 
-
+"""
 @client.event
 async def on_member_join(member):
     print(f'{member} has joined the server.')
@@ -52,7 +52,7 @@ async def on_member_join(member):
 @client.event
 async def on_member_leave(member):
     print(f'{member} has left the server.')
-
+"""
 
 @client.command()
 async def weather(ctx, *, CITY):
