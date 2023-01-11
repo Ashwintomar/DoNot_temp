@@ -20,7 +20,6 @@ import openai
 
 
 
-
 openai.api_key = "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"
 
 
@@ -28,11 +27,9 @@ openai.api_key = "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"
 format = "Date: %Y-%m-%d \nTime : %H:%M:%S"
 
 client = commands.Bot(command_prefix='&')
-
-
 # definition column
 translator = Translator()
-t = TenGiphPy.Tenor(token="41QVLZGFS5MZ")
+t = TenGiphPy.Tenor("41QVLZGFS5MZ")
 
 status = cycle(['Not your average cat', 'Why are you looking here'])
 
@@ -43,7 +40,7 @@ red = praw.Reddit(client_id="Iu71QgycjWkEetYzLwzssg",
                   user_agent="Chrome",
                   check_for_async=False)
 
-"""
+
 @client.event
 async def on_member_join(member):
     print(f'{member} has joined the server.')
@@ -52,7 +49,7 @@ async def on_member_join(member):
 @client.event
 async def on_member_leave(member):
     print(f'{member} has left the server.')
-"""
+
 
 @client.command()
 async def weather(ctx, *, CITY):
@@ -89,7 +86,7 @@ async def urban(ctx, *, word):
 @client.command()
 async def reddit(ctx, *, subr):
     subreddit = red.subreddit(subr)
-    top = subreddit.hot(limit=150)
+    top = subreddit.top(limit=50)
     all_subs = []
     for submission in top:
         all_subs.append(submission)
@@ -344,6 +341,21 @@ async def slap(message, user: discord.Member):
     await message.send(t.random("anime slap"))
 
 
+
+# @client.command()
+# async def spmpng(message, user: discord.Member):
+#   for x in range(10):
+#       if message.author == client.user or message.author.bot:
+#           return
+#       response = f"wake up dumbass {user.mention}"
+#       await message.channel.send(response)
+#       await message.channel.purge(limit=10)
+
+    
+
+
+
+
 @client.command()
 async def cloud(message):
     # No infinite bot loops
@@ -432,15 +444,15 @@ async def kill(message, user: discord.Member):
     await message.send(t.random("stab"))
 
 
-@client.command()
-async def fuck(message, user: discord.Member):
-    # No infinite bot loops
-    if message.author == client.user or message.author.bot:
-        return
-    mention = message.author.mention
-    response = f"{mention} just fucked {user.mention} and it felt great"
-    await message.send(t.random("sex"))
-    await message.channel.send(response)
+# @client.command()
+# async def fuck(message, user: discord.Member):
+#     # No infinite bot loops
+#     if message.author == client.user or message.author.bot:
+#         return
+#     mention = message.author.mention
+#     response = f"{mention} just fucked {user.mention} and it felt great"
+#     await message.send(t.random("sex"))
+#     await message.channel.send(response)
 
 
 @client.command(aliases=["w"])
@@ -679,7 +691,7 @@ async def image(ctx, *, prompts):
 async def chat(ctx, *, prompts):
     response = openai.Completion.create(
     model="text-davinci-003",
-    prompt="talk to me as my seductive wife\n\nme:"+prompts+"\nseductive and caring wife:",
+    prompt="talk to me as my supportive wife\n\nme:"+prompts+"\my cute supportive wife:",
     temperature=0,
     max_tokens=60,
     top_p=1,
@@ -727,5 +739,5 @@ async def change_status():
 
 keep_alive()
 
-my_secret = "MTA2MDMyNDkyOTYxNjIyODQ0Mg.GOEp0S.XySKwKWdIn4B9YFnS1tjnXxYGO2WoTkKDRWXJ4"
+my_secret = "MTA2MDMyNDkyOTYxNjIyODQ0Mg.GzvGyW.R3EexybOef54-waVx-rNlXICdcquIlm_ZTH9LA"
 client.run(my_secret, bot=True)
