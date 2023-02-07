@@ -730,7 +730,7 @@ async def study(ctx, *, prompts):
     await ctx.send(code_res)
 
 
-
+#random comment
 
 @tasks.loop(seconds=2)
 async def change_status():
