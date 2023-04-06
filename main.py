@@ -17,7 +17,7 @@ import pyfiglet
 import termcolor
 import requests, json
 import openai
-
+#temp
 
 
 openai.api_key = "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"
@@ -631,7 +631,7 @@ Never gonna make you cry
 Never gonna say goodbye
 Never gonna tell a lie and hurt you
 Never gonna give you up
-Never gonna let you down
+Never gonna let you dow
 Never gonna run around and desert you
 Never gonna make you cry""")
 
