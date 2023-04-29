@@ -687,21 +687,47 @@ async def image(ctx, *, prompts):
     result = response['data'][0]['url']
     await ctx.send(result)
 
+# @client.command(aliases=['text'])
+# async def chat(ctx, *, prompts):
+#     response = openai.Completion.create(
+#     model="text-davinci-003",
+#     prompt="talk to me as my cute, adorable and pure wife\n\nme:"+prompts+"\ my wife:",
+#     temperature=0,
+#     max_tokens=60,
+#     top_p=1,
+#     frequency_penalty=0.5,
+#     presence_penalty=0
+#     )
+#     text_res = response['choices'][0]['text']
+#     await ctx.send(text_res)
 @client.command(aliases=['text'])
 async def chat(ctx, *, prompts):
-    response = openai.Completion.create(
-    model="text-davinci-003",
-    prompt="talk to me as my cute, adorable and pure wife\n\nme:"+prompts+"\ my wife:",
-    temperature=0,
-    max_tokens=60,
-    top_p=1,
-    frequency_penalty=0.5,
-    presence_penalty=0
+    prompts = str(prompts)
+    response = openai.ChatCompletion.create(
+    model="gpt-3.5-turbo", 
+    messages = [{"role": "system", "content" : "You are a chat gpt model that can answer most questions.\nKnowledge cutoff: 2021-09-01\nCurrent date: 2023-04-29"},
+    {"role": "user", "content" : "How are you?"},
+    {"role": "assistant", "content" : "i am doing great!."},
+    {"role": "user", "content" :"talk to me as a anime catgirl who i found and she loves me but can't express as she is a tsundere, hence might come out as agressive but is actually really shy and insecure,try to answer in one or two lines as response. prompt : " + prompts + ", response : "}]
     )
-    text_res = response['choices'][0]['text']
+#print(completion)
+    text_res = str(response['choices'][0]['message']['content'])
     await ctx.send(text_res)
 
 
+@client.command(aliases=['pet'])
+async def cursed(ctx, *, prompts):
+    prompts = str(prompts)
+    response = openai.ChatCompletion.create(
+    model="gpt-3.5-turbo", 
+    messages = [{"role": "system", "content" : "You are a chat gpt model that can answer most questions.\nKnowledge cutoff: 2021-09-01\nCurrent date: 2023-04-29"},
+    {"role": "user", "content" : "How are you?"},
+    {"role": "assistant", "content" : "i am doing great!."},
+    {"role": "user", "content" :"talk to me as a male uwu discord kitten who loves me as his sugar mommy, my role is a female discord mod.try to summarise answer in one or two lines as response. prompt : " + prompts + ", response : "}]
+    )
+#print(completion)
+    text_res = str(response['choices'][0]['message']['content'])
+    await ctx.send(text_res)
 
 
 @client.command(aliases=['gpt','code'])
@@ -754,7 +780,6 @@ async def change_status():
 
 
 keep_alive()
-
 
 
 
