@@ -677,7 +677,7 @@ async def spam(ctx):
 
 
 
-@client.command(aliases=['gpt'])
+@client.command(aliases=['photo'])
 async def image(ctx, *, prompts):
     response = openai.Image.create(
     prompt=prompts,
@@ -691,7 +691,7 @@ async def image(ctx, *, prompts):
 async def chat(ctx, *, prompts):
     response = openai.Completion.create(
     model="text-davinci-003",
-    prompt="talk to me as my supportive wife\n\nme:"+prompts+"\my cute supportive wife:",
+    prompt="talk to me as my cute, adorable and pure wife\n\nme:"+prompts+"\ my wife:",
     temperature=0,
     max_tokens=60,
     top_p=1,
@@ -701,19 +701,37 @@ async def chat(ctx, *, prompts):
     text_res = response['choices'][0]['text']
     await ctx.send(text_res)
 
-@client.command(aliases=['coding'])
-async def code(ctx, *, prompts):
-    response = openai.Completion.create(
-    model="code-cushman-001",
-    prompt=prompts,
-    temperature=0,
-    max_tokens=300,
-    top_p=1,
-    frequency_penalty=0,
-    presence_penalty=0
+
+
+
+@client.command(aliases=['gpt','code'])
+async def chatgpt(ctx, *, prompts):
+    prompts = str(prompts)
+    response = openai.ChatCompletion.create(
+    model="gpt-3.5-turbo", 
+    messages = [{"role": "system", "content" : "You are a chat gpt model that can answer most questions.\nKnowledge cutoff: 2021-09-01\nCurrent date: 2023-04-29"},
+    {"role": "user", "content" : "How are you?"},
+    {"role": "assistant", "content" : "i am doing great!."},
+    {"role": "user", "content" : prompts}]
     )
-    code_res = response['choices'][0]['text']
-    await ctx.send(code_res)
+#print(completion)
+    text_res = str(response['choices'][0]['message']['content'])
+    await ctx.send(text_res)
+
+
+# @client.command(aliases=['coding'])
+# async def code(ctx, *, prompts):
+#     response = openai.Completion.create(
+#     model="code-davinci-001",
+#     prompt=prompts,
+#     temperature=0,
+#     max_tokens=300,
+#     top_p=1,
+#     frequency_penalty=0,
+#     presence_penalty=0
+#     )
+#     code_res = response['choices'][0]['text']
+#     await ctx.send(code_res)
 
 @client.command(aliases=['find'])
 async def study(ctx, *, prompts):
@@ -736,6 +754,9 @@ async def change_status():
 
 
 keep_alive()
+
+
+
 
 my_secret = "MTA2MDMyNDkyOTYxNjIyODQ0Mg.Ge3Mv7.ecd0GpopWoBZkW7lgbPG2BXfzw3_idlneVgsKM"
 client.run(my_secret, bot=True)
