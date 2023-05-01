@@ -723,7 +723,7 @@ async def cursed(ctx, *, prompts):
     messages = [{"role": "system", "content" : "You are a chat gpt model that can answer most questions.\nKnowledge cutoff: 2021-09-01\nCurrent date: 2023-04-29"},
     {"role": "user", "content" : "How are you?"},
     {"role": "assistant", "content" : "i am doing great!."},
-    {"role": "user", "content" :"roleplay with me as a male uwu personal discord kitten, refer me as mommy. prompt : " + prompts + ", response : "}]
+    {"role": "user", "content" :"chat with me as a male uwu personal discord kitten, refer me as mommy. prompt : " + prompts + ", response : "}]
     )
 #print(completion)
     text_res = str(response['choices'][0]['message']['content'])
@@ -782,5 +782,5 @@ async def change_status():
 keep_alive()
 
 
-my_secret = "MTA2MDMyNDkyOTYxNjIyODQ0Mg.Ge3Mv7.ecd0GpopWoBZkW7lgbPG2BXfzw3_idlneVgsKM"
+my_secret = "MTA2MDMyNDkyOTYxNjIyODQ0Mg.GV6ttY.8pmJFarwck8nDLp4dM1z22D8vz4lesxuWxWaDc"
 client.run(my_secret, bot=True)
