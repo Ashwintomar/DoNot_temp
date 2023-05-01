@@ -708,7 +708,7 @@ async def chat(ctx, *, prompts):
     messages = [{"role": "system", "content" : "You are a chat gpt model that can answer most questions.\nKnowledge cutoff: 2021-09-01\nCurrent date: 2023-04-29"},
     {"role": "user", "content" : "How are you?"},
     {"role": "assistant", "content" : "i am doing great!."},
-    {"role": "user", "content" :"talk to me as a anime catgirl who i found and she loves me but can't express as she is a tsundere, hence might come out as agressive but is actually really shy and insecure,try to answer in one or two lines as response. prompt : " + prompts + ", response : "}]
+    {"role": "user", "content" :"talk to me as a anime catgirl who i found and she loves me but can't express as she is a tsundere, hence might come out as agressive but is actually really shy and insecure,try to answer in two to three lines as response. prompt : " + prompts + ", response : "}]
     )
 #print(completion)
     text_res = str(response['choices'][0]['message']['content'])
@@ -723,7 +723,7 @@ async def cursed(ctx, *, prompts):
     messages = [{"role": "system", "content" : "You are a chat gpt model that can answer most questions.\nKnowledge cutoff: 2021-09-01\nCurrent date: 2023-04-29"},
     {"role": "user", "content" : "How are you?"},
     {"role": "assistant", "content" : "i am doing great!."},
-    {"role": "user", "content" :"talk to me as a male uwu discord kitten who loves me as his sugar mommy, my role is a female discord mod.try to summarise answer in one or two lines as response. prompt : " + prompts + ", response : "}]
+    {"role": "user", "content" :"roleplay with me as a male uwu personal discord kitten, refer me as mommy. prompt : " + prompts + ", response : "}]
     )
 #print(completion)
     text_res = str(response['choices'][0]['message']['content'])
@@ -738,7 +738,7 @@ async def chatgpt(ctx, *, prompts):
     messages = [{"role": "system", "content" : "You are a chat gpt model that can answer most questions.\nKnowledge cutoff: 2021-09-01\nCurrent date: 2023-04-29"},
     {"role": "user", "content" : "How are you?"},
     {"role": "assistant", "content" : "i am doing great!."},
-    {"role": "user", "content" : prompts}]
+    {"role": "user", "content" : "try to be concise while answering, prompt : "+prompts+", response : "}]
     )
 #print(completion)
     text_res = str(response['choices'][0]['message']['content'])
@@ -780,7 +780,6 @@ async def change_status():
 
 
 keep_alive()
-
 
 
 my_secret = "MTA2MDMyNDkyOTYxNjIyODQ0Mg.Ge3Mv7.ecd0GpopWoBZkW7lgbPG2BXfzw3_idlneVgsKM"
