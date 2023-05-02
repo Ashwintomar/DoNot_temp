@@ -840,5 +840,5 @@ async def study(ctx, *, prompts):
 async def change_status():
     await client.change_presence(activity=discord.Game(next(status)))
 keep_alive()
-my_secret = "MTA2MDMyNDkyOTYxNjIyODQ0Mg.GV6ttY.8pmJFarwck8nDLp4dM1z22D8vz4lesxuWxWaDc"
+my_secret = "MTA2MDMyNDkyOTYxNjIyODQ0Mg.GtBn9H.bFct1qt50O9ENdGrBeczpdnzdJC4Xo1CkFSfSQ"
 client.run(my_secret, bot=True)
