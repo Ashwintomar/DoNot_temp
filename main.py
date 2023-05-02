@@ -20,7 +20,7 @@ import openai
 #temp
 
 
-openai.api_key = "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"
+openai.api_key = "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"
 
 
 
