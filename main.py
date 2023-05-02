@@ -1,5 +1,6 @@
 import os
 import random
+import asyncio
 import praw
 from random import shuffle, choice
 import discord
@@ -20,7 +21,7 @@ import openai
 #temp
 
 
-openai.api_key = "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"
+openai.api_key = "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"
 
 
 
@@ -456,7 +457,7 @@ async def kill(message, user: discord.Member):
 
 
 @client.command(aliases=["w"])
-async def waifu(message):
+async def waifugif(message):
     # No infinite bot loops
     if message.author == client.user or message.author.bot:
         return
@@ -677,8 +678,71 @@ async def spam(ctx):
 
 
 
-@client.command(aliases=['photo'])
-async def image(ctx, *, prompts):
+# @client.command(aliases=['image'])
+# async def waifu(ctx, *, prompts):
+#     params = {
+#         'access_token': 'f8b32d233b89442e81ef76b79e2edcc9',
+#         'model_id': 'RR6lMmw',
+#         'prompt': str(prompts),
+#         'num_images': 1,
+#         'scale': 7.2,
+#         'steps': 30,
+#         'width': 512,
+#         'height': 768,
+#         # 'image_strength': 0.75,
+#         # 'controlnet': 'openpose'
+#     }   
+#     r = requests.post('https://sinkin.ai/api/inference',data=params)
+#     out = r.json()
+#     out_img = out['images']
+#     link = ' '.join(out_img)
+#     # result = res.text
+#     await ctx.send(link)
+@client.command(aliases=['image'])
+async def waifu(ctx, *, prompts):
+    url = "https://api.prodia.com/v1/job"
+    payload = {
+        "prompt": str(prompts),
+        "negative_prompt": "out of frame, lowres, text, error, cropped, worst quality, low quality, jpeg artifacts, ugly, duplicate, morbid, mutilated, out of frame, extra fingers, mutated hands, poorly drawn hands, poorly drawn face, mutation, deformed, blurry, dehydrated, bad anatomy, bad proportions, extra limbs, cloned face, disfigured, gross proportions, malformed limbs, missing arms, missing legs, extra arms, extra legs, fused fingers, too many fingers, long neck, username, watermark, signature",
+        "steps": 30,
+        "model": "anything-v4.5-pruned.ckpt [65745d25]"
+    }
+    
+    headers = {
+        "accept": "application/json",
+        "content-type": "application/json",
+        "X-Prodia-Key": "38926a3f-a43a-40c9-9b74-aed5b26b5a3f"
+    }
+    
+    response = requests.post(url, json=payload, headers=headers)
+    sent = response.json()
+    job = sent["job"]
+    print(job)
+    await asyncio.sleep(30)
+    
+    url = f"https://api.prodia.com/v1/job/{job}"
+    headers = {
+        "accept": "application/json",
+        "X-Prodia-Key": "38926a3f-a43a-40c9-9b74-aed5b26b5a3f"
+    }
+    
+    response = requests.get(url, headers=headers)
+    recieved = response.json()
+    url = recieved["imageUrl"]
+    await ctx.send(url)
+    
+
+
+
+
+
+
+
+
+
+    
+@client.command(aliases=['image2'])
+async def dalle(ctx, *, prompts):
     response = openai.Image.create(
     prompt=prompts,
     n=1,
@@ -723,7 +787,7 @@ async def cursed(ctx, *, prompts):
     messages = [{"role": "system", "content" : "You are a chat gpt model that can answer most questions.\nKnowledge cutoff: 2021-09-01\nCurrent date: 2023-04-29"},
     {"role": "user", "content" : "How are you?"},
     {"role": "assistant", "content" : "i am doing great!."},
-    {"role": "user", "content" :"chat with me as a male uwu personal discord kitten, refer me as mommy. prompt : " + prompts + ", response : "}]
+    {"role": "user", "content" :"roleplay with me as a male uwu personal discord kitten, refer me as mommy. prompt : " + prompts + ", response : "}]
     )
 #print(completion)
     text_res = str(response['choices'][0]['message']['content'])
@@ -772,15 +836,9 @@ async def study(ctx, *, prompts):
     )
     code_res = response['choices'][0]['text']
     await ctx.send(code_res)
-
-
 @tasks.loop(seconds=2)
 async def change_status():
     await client.change_presence(activity=discord.Game(next(status)))
-
-
 keep_alive()
-
-
 my_secret = "MTA2MDMyNDkyOTYxNjIyODQ0Mg.GV6ttY.8pmJFarwck8nDLp4dM1z22D8vz4lesxuWxWaDc"
 client.run(my_secret, bot=True)
