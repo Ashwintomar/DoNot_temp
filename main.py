@@ -32,7 +32,7 @@ client = commands.Bot(command_prefix='&')
 translator = Translator()
 t = TenGiphPy.Tenor("41QVLZGFS5MZ")
 
-status = cycle([f'Connected to {len(client.guilds)} guild(s).','Not your average bot'])
+
 
 red = praw.Reddit(client_id="Iu71QgycjWkEetYzLwzssg",
                   client_secret="MHNVy7OfJDdr2GzCVEkaddsUZPlejA",
@@ -700,6 +700,19 @@ async def spam(ctx):
 #     await ctx.send(link)
 @client.command(aliases=['image'])
 async def waifu(ctx, *, prompts):
+    banned_words = [
+        "child",
+        "kid",
+        "rape",
+        "school",
+        "killed"
+    ]
+    
+    for word in banned_words:
+        if word in prompts:
+            await ctx.send("This word is banned.")
+            return
+    
     url = "https://api.prodia.com/v1/job"
     payload = {
         "prompt": str(prompts),
@@ -730,17 +743,7 @@ async def waifu(ctx, *, prompts):
     recieved = response.json()
     url = recieved["imageUrl"]
     await ctx.send(url)
-    
-
-
-
-
-
-
-
-
-
-    
+   
 # @client.command(aliases=['image2'])
 # async def dalle(ctx, *, prompts):
 #     response = openai.Image.create(
@@ -764,19 +767,19 @@ async def waifu(ctx, *, prompts):
 #     )
 #     text_res = response['choices'][0]['text']
 #     await ctx.send(text_res)
-@client.command(aliases=['text'])
-async def chat(ctx, *, prompts):
-    prompts = str(prompts)
-    response = openai.ChatCompletion.create(
-    model="gpt-3.5-turbo", 
-    messages = [{"role": "system", "content" : "You are a chat gpt model that can answer most questions.\nKnowledge cutoff: 2021-09-01\nCurrent date: 2023-04-29"},
-    {"role": "user", "content" : "How are you?"},
-    {"role": "assistant", "content" : "i am doing great!."},
-    {"role": "user", "content" :"talk to me as a anime catgirl who i found and she loves me but can't express as she is a tsundere, hence might come out as agressive but is actually really shy and insecure,try to answer in two to three lines as response. prompt : " + prompts + ", response : "}]
-    )
-#print(completion)
-    text_res = str(response['choices'][0]['message']['content'])
-    await ctx.send(text_res)
+# @client.command(aliases=['text'])
+# async def chat(ctx, *, prompts):
+#     prompts = str(prompts)
+#     response = openai.ChatCompletion.create(
+#     model="gpt-3.5-turbo", 
+#     messages = [{"role": "system", "content" : "You are a chat gpt model that can answer most questions.\nKnowledge cutoff: 2021-09-01\nCurrent date: 2023-04-29"},
+#     {"role": "user", "content" : "How are you?"},
+#     {"role": "assistant", "content" : "i am doing great!."},
+#     {"role": "user", "content" :"talk to me as a anime catgirl who i found and she loves me but can't express as she is a tsundere, hence might come out as agressive but is actually really shy and insecure,try to answer in two to three lines as response. prompt : " + prompts + ", response : "}]
+#     )
+# #print(completion)
+#     text_res = str(response['choices'][0]['message']['content'])
+#     await ctx.send(text_res)
 
 
 @client.command(aliases=['pet'])
@@ -807,7 +810,25 @@ async def cursed(ctx, *, prompts):
 # #print(completion)
 #     text_res = str(response['choices'][0]['message']['content'])
 #     await ctx.send(text_res)
+status = cycle([f'Connected to {len(client.guilds)} guild(s).','Not your average bot'])
 
+@client.command(aliases=['servers'])
+async def serverlist(ctx):
+    guild_names = [guild.name for guild in client.guilds]
+    await ctx.send('\n'.join(guild_names))
+  
+# serverlist = ['''𝙉𝙖𝙢𝙞𝙞✦'s server''','''! akitoes メ's server''','''Our Garden''','''FJ hub''']
+# @client.command()
+# async def leave_servers(ctx):
+#     for server_name in serverlist:
+#         # Find the server with the specified name
+#         guild = discord.utils.get(client.guilds, name=server_name)
+#         if guild:
+#             # Leave the specified server
+#             await guild.leave()
+#             await ctx.send(f"Left the server: {server_name}")
+#         else:
+#             await ctx.send(f"Server not found: {server_name}")
 
 # @client.command(aliases=['coding'])
 # async def code(ctx, *, prompts):
@@ -822,28 +843,10 @@ async def cursed(ctx, *, prompts):
 #     )
 #     code_res = response['choices'][0]['text']
 #     await ctx.send(code_res)
-@client.command(aliases=['servers'])
-async def serverlist(ctx):
-    guild_names = [guild.name for guild in client.guilds]
-    await ctx.send('\n'.join(guild_names))
-    
-    
-# @client.command(aliases=['find'])
-# async def study(ctx, *, prompts):
-#     response = openai.Completion.create(
-#     model="text-curie-001",
-#     prompt=prompts,
-#     temperature=0,
-#     max_tokens=450,
-#     top_p=1,
-#     frequency_penalty=0,
-#     presence_penalty=0
-#     )
-#     code_res = response['choices'][0]['text']
-#     await ctx.send(code_res)
+
 @tasks.loop(seconds=2)
 async def change_status():
-    await client.change_presence(activity=discord.Game(next(status)))
+  await client.change_presence(activity=discord.Game(next(status)))
 keep_alive()
 my_secret = "MTA2MDMyNDkyOTYxNjIyODQ0Mg.GtBn9H.bFct1qt50O9ENdGrBeczpdnzdJC4Xo1CkFSfSQ"
 client.run(my_secret, bot=True)
