@@ -32,7 +32,7 @@ client = commands.Bot(command_prefix='&')
 translator = Translator()
 t = TenGiphPy.Tenor("41QVLZGFS5MZ")
 
-status = cycle(['Not your average cat', 'Why are you looking here'])
+status = cycle([f'Connected to {len(client.guilds)} guild(s).','Not your average bot'])
 
 red = praw.Reddit(client_id="Iu71QgycjWkEetYzLwzssg",
                   client_secret="MHNVy7OfJDdr2GzCVEkaddsUZPlejA",
@@ -741,15 +741,15 @@ async def waifu(ctx, *, prompts):
 
 
     
-@client.command(aliases=['image2'])
-async def dalle(ctx, *, prompts):
-    response = openai.Image.create(
-    prompt=prompts,
-    n=1,
-    size="1024x1024"
-    )
-    result = response['data'][0]['url']
-    await ctx.send(result)
+# @client.command(aliases=['image2'])
+# async def dalle(ctx, *, prompts):
+#     response = openai.Image.create(
+#     prompt=prompts,
+#     n=1,
+#     size="1024x1024"
+#     )
+#     result = response['data'][0]['url']
+#     await ctx.send(result)
 
 # @client.command(aliases=['text'])
 # async def chat(ctx, *, prompts):
@@ -794,19 +794,19 @@ async def cursed(ctx, *, prompts):
     await ctx.send(text_res)
 
 
-@client.command(aliases=['gpt','code'])
-async def chatgpt(ctx, *, prompts):
-    prompts = str(prompts)
-    response = openai.ChatCompletion.create(
-    model="gpt-3.5-turbo", 
-    messages = [{"role": "system", "content" : "You are a chat gpt model that can answer most questions.\nKnowledge cutoff: 2021-09-01\nCurrent date: 2023-04-29"},
-    {"role": "user", "content" : "How are you?"},
-    {"role": "assistant", "content" : "i am doing great!."},
-    {"role": "user", "content" : "try to be concise while answering, prompt : "+prompts+", response : "}]
-    )
-#print(completion)
-    text_res = str(response['choices'][0]['message']['content'])
-    await ctx.send(text_res)
+# @client.command(aliases=['gpt','code'])
+# async def chatgpt(ctx, *, prompts):
+#     prompts = str(prompts)
+#     response = openai.ChatCompletion.create(
+#     model="gpt-3.5-turbo", 
+#     messages = [{"role": "system", "content" : "You are a chat gpt model that can answer most questions.\nKnowledge cutoff: 2021-09-01\nCurrent date: 2023-04-29"},
+#     {"role": "user", "content" : "How are you?"},
+#     {"role": "assistant", "content" : "i am doing great!."},
+#     {"role": "user", "content" : "try to be concise while answering, prompt : "+prompts+", response : "}]
+#     )
+# #print(completion)
+#     text_res = str(response['choices'][0]['message']['content'])
+#     await ctx.send(text_res)
 
 
 # @client.command(aliases=['coding'])
@@ -822,20 +822,25 @@ async def chatgpt(ctx, *, prompts):
 #     )
 #     code_res = response['choices'][0]['text']
 #     await ctx.send(code_res)
-
-@client.command(aliases=['find'])
-async def study(ctx, *, prompts):
-    response = openai.Completion.create(
-    model="text-curie-001",
-    prompt=prompts,
-    temperature=0,
-    max_tokens=450,
-    top_p=1,
-    frequency_penalty=0,
-    presence_penalty=0
-    )
-    code_res = response['choices'][0]['text']
-    await ctx.send(code_res)
+@client.command(aliases=['servers'])
+async def serverlist(ctx):
+    guild_names = [guild.name for guild in client.guilds]
+    await ctx.send('\n'.join(guild_names))
+    
+    
+# @client.command(aliases=['find'])
+# async def study(ctx, *, prompts):
+#     response = openai.Completion.create(
+#     model="text-curie-001",
+#     prompt=prompts,
+#     temperature=0,
+#     max_tokens=450,
+#     top_p=1,
+#     frequency_penalty=0,
+#     presence_penalty=0
+#     )
+#     code_res = response['choices'][0]['text']
+#     await ctx.send(code_res)
 @tasks.loop(seconds=2)
 async def change_status():
     await client.change_presence(activity=discord.Game(next(status)))
