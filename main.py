@@ -298,7 +298,7 @@ def get_current_date_with_weekday():
 @client.command()
 async def date(ctx):
   date, weekday = get_current_date_with_weekday()
-  res = str("Date : "+date+"/nWeekday : "+weekday)
+  res = str("Date : ",date,"/nWeekday : ",weekday)
   await ctx.channel.send(res)
 
 
