@@ -7,7 +7,7 @@ import discord
 from discord import channel
 from discord.ext import commands, tasks
 from itertools import cycle
-import calendar
+import datetime
 import TenGiphPy
 from googletrans import Translator
 from keep_alive import keep_alive
@@ -289,10 +289,17 @@ async def iloveyou(ctx):
   await ctx.channel.send("i love you too!!")
   await ctx.send(t.random("anime heart"))
 
-
+def get_current_date_with_weekday():
+    current_date = datetime.date.today()
+    weekday = current_date.strftime("%A")  # Get the weekday as a full name
+    return current_date, weekday
+  
+  
 @client.command()
-async def cal(ctx):
-  await ctx.channel.send(calendar.month(2022, 7))
+async def date(ctx):
+  date, weekday = get_current_date_with_weekday()
+  res = str("Date : "+date+"/nWeekday : "+weekday)
+  await ctx.channel.send(res)
 
 
 @client.command()
