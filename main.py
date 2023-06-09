@@ -290,7 +290,7 @@ async def iloveyou(ctx):
   await ctx.send(t.random("anime heart"))
 
 def get_current_date_with_weekday():
-    current_date = datetime.date.today()
+    current_date = datetime.datetime.now().date()
     weekday = current_date.strftime("%A")  # Get the weekday as a full name
     return current_date, weekday
   
