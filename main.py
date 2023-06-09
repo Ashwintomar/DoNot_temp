@@ -930,7 +930,7 @@ async def waifu4(ctx, *, prompts):
 @client.command(aliases=['chat'])
 async def kitten(ctx, *, prompts):
   prompts = str(
-    "Answer the prompt acting like you are a anime catgirl who acts like she doesn't like me, but adds hints that she does love me (also known as tsundere)./n Important Instruction 1 : Make sure to only provide single to two line answers. Important Instruction 2 : Also do not add lines to answer such as sure here is how i would respond ,or, sure here is the answer./nImportant Instruction 3: Do not add the actions in answer such as i would do this or i would do that. /nImportant Instruction 4: Talk in third person. /n My prompt is : "
+    "Answer the prompt without additional information about actions, just dialogue should be given acting like you are a anime catgirl who acts like she doesn't like me, but adds hints that she does love me (also known as tsundere)./n Important Instruction 1 : Make sure to only provide single to two line answers. Important Instruction 2 : Also do not add lines to answer such as sure here is how i would respond ,or, sure here is the answer./nImportant Instruction 3: Do not add the actions in answer such as i would do this or i would do that. /nImportant Instruction 4: Talk in third person. /n My prompt is : "
     + prompts)
   session = requests.Session()
   session.headers = {
@@ -1019,5 +1019,5 @@ async def total_members(ctx):
 # async def change_status():
 #   await client.change_presence(activity=discord.Game(status))
 keep_alive()
-my_secret = "MTA2MDMyNDkyOTYxNjIyODQ0Mg.GUxg-b.WI4Xxa9ZZ2tnxWxTW0EN5fx9RAu6NaQPEm-4f4"
+my_secret = "MTA2MDMyNDkyOTYxNjIyODQ0Mg.GugLjb.Hu1aWqhgq7llamtkGkxhRcVbTRtEPC7P-tJ13g"
 client.run(my_secret, bot=True)
