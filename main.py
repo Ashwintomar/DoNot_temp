@@ -937,7 +937,7 @@ async def waifu4(ctx, *, prompts):
 @client.command(aliases=['chat'])
 async def kitten(ctx, *, prompts):
   prompts = str(
-    "answer in one line, if i was a anime catgirl who loves to act shy and tsundere, how would i respond to following prompt, prompt : "+ prompts)
+    "answer in one line without an extra explaination about the answer you provide, if i was a anime catgirl who loves to act shy and tsundere, how would i respond to following prompt, prompt : "+ prompts)
 
   session = requests.Session()
   session.headers = {
