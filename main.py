@@ -919,19 +919,19 @@ async def chat(ctx, *, prompts):
     text_res = str(response['choices'][0]['message']['content'])
     await ctx.send(text_res)
 
-# @client.command(aliases=['pet'])
-# async def cursed(ctx, *, prompts):
-#     prompts = str(prompts)
-#     response = openai.ChatCompletion.create(
-#     model="gpt-3.5-turbo",
-#     messages = [{"role": "system", "content" : "You are a chat gpt model that can answer most questions.\nKnowledge cutoff: 2021-09-01\nCurrent date: 2023-04-29"},
-#     {"role": "user", "content" : "How are you?"},
-#     {"role": "assistant", "content" : "i am doing great!."},
-#     {"role": "user", "content" :"roleplay with me as a male uwu personal discord kitten, refer me as mommy. prompt : " + prompts + ", response : "}]
-#     )
-# #print(completion)
-#     text_res = str(response['choices'][0]['message']['content'])
-#     await ctx.send(text_res)
+@client.command(aliases=['pet'])
+async def cursed(ctx, *, prompts):
+    prompts = str(prompts)
+    response = openai.ChatCompletion.create(
+    model="gpt-3.5-turbo",
+    messages = [{"role": "system", "content" : "You are a chat gpt model that can answer most questions.\nKnowledge cutoff: 2021-09-01\nCurrent date: 2023-04-29"},
+    {"role": "user", "content" : "How are you?"},
+    {"role": "assistant", "content" : "i am doing great!."},
+    {"role": "user", "content" :"roleplay with me as a male uwu personal discord kitten, refer me as mommy. prompt : " + prompts + ", response : "}]
+    )
+#print(completion)
+    text_res = str(response['choices'][0]['message']['content'])
+    await ctx.send(text_res)
 
 
 # @client.command(aliases=['chat'])
