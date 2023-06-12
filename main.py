@@ -17,6 +17,7 @@ from udpy import UrbanClient
 import pyfiglet
 import termcolor
 import requests, json
+import openai
 #temp
 
 token = 'XQhx4VhyI4_SmRJ634zKUYXY8O3sDLwMUpHd3DQGG1qVgd2iA7SMMbOIZFfEhJFeEwGRzQ.'
