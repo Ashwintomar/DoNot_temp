@@ -919,7 +919,7 @@ async def chat(ctx, *, prompts):
 
     
     
-@client.command(aliases=['text2'])
+@client.command(aliases=['emma'])
 async def mommy(ctx, *, prompts):
     prompts = str(prompts)
     response = openai.ChatCompletion.create(model="gpt-3.5-turbo",
