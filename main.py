@@ -20,7 +20,7 @@ import requests, json
 from bardapi import Bard
 #temp
 
-token = 'XQgHKCN3gKcQOgsZyOgMIb5RIMrhkPprwgqv6j4xTIZwCF7OQUHa0FOw_r57-sJx6ygbeg.'
+token = 'XQhx4VhyI4_SmRJ634zKUYXY8O3sDLwMUpHd3DQGG1qVgd2iA7SMMbOIZFfEhJFeEwGRzQ.'
 
 format = "Date: %Y-%m-%d \nTime : %H:%M:%S"
 
