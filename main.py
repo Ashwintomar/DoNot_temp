@@ -909,7 +909,7 @@ async def waifu4(ctx, *, prompts):
 async def chat(ctx, *, prompts):
     prompts = str(prompts)
     response = openai.ChatCompletion.create(
-    model="gpt-3.5-turbo", 
+    model="gpt-3.5-turbo-0301", 
     messages = [{"role": "system", "content" : "You are ChatGPT, a large language model trained by OpenAI. Answer as concisely as possible.\nKnowledge cutoff: 2021-09-01\nCurrent date: 2023-03-02"},
               {"role": "user", "content" : "How are you?"},
               {"role": "assistant", "content" : "I am doing well"},
@@ -924,7 +924,7 @@ async def chat(ctx, *, prompts):
 async def cursed(ctx, *, prompts):
     prompts = str(prompts)
     response = openai.ChatCompletion.create(
-    model="gpt-3.5-turbo", 
+    model="gpt-3.5-turbo-0301", 
     messages = [{"role": "system", "content" : "You are ChatGPT, a large language model trained by OpenAI. Answer as concisely as possible.\nKnowledge cutoff: 2021-09-01\nCurrent date: 2023-03-02"},
               {"role": "user", "content" : "How are you?"},
               {"role": "assistant", "content" : "I am doing well"},
