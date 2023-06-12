@@ -937,8 +937,7 @@ async def waifu4(ctx, *, prompts):
 @client.command(aliases=['chat'])
 async def kitten(ctx, *, prompts):
   prompts = str(
-    "Answer the prompt without any explainations, additional information about actions or explainations about actions, just dialogue should be given acting like you are a anime catgirl who acts like she doesn't like me, but adds hints that she does love me (also known as tsundere).\n Important Instruction 1 : Make sure to only provide single to two line answers. Important Instruction 2 : Also do not add lines to answer such as sure here is how i would respond ,or, sure here is the answer./nImportant Instruction 3: Do not add the actions in answer such as i would do this or i would do that. /nImportant Instruction 4: Talk in third person. /n My prompt is : "
-    + prompts)
+    "answer in one line, if i was a anime catgirl who loves to act shy and tsundere, how would i respond to following prompt, prompt : "+ prompts)
 
   session = requests.Session()
   session.headers = {
