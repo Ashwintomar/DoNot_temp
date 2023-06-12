@@ -17,11 +17,10 @@ from udpy import UrbanClient
 import pyfiglet
 import termcolor
 import requests, json
-from bardapi import Bard
 #temp
 
 token = 'XQhx4VhyI4_SmRJ634zKUYXY8O3sDLwMUpHd3DQGG1qVgd2iA7SMMbOIZFfEhJFeEwGRzQ.'
-
+openai.api_key = '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'
 format = "Date: %Y-%m-%d \nTime : %H:%M:%S"
 
 client = commands.Bot(command_prefix='&')
@@ -896,28 +895,28 @@ async def waifu4(ctx, *, prompts):
 # async def chat(ctx, *, prompts):
 #     response = openai.Completion.create(
 #     model="text-davinci-003",
-#     prompt="talk to me as my cute, adorable and pure wife\n\nme:"+prompts+"\ my wife:",
-#     temperature=0,
-#     max_tokens=60,
+#     prompt="I am creating a script, in this script, you are named Luna, a catgirl from anime who is in love with the person talking to her currently and wants to give him hints about it, she has traits of being shy, introverted, submissive, and self-deprecating. \nshe always answers in a meek and obsessive way but ends up flushing and blushing due to her introverted and shy nature. Answer the following prompt according to the description of Luna.\n\nPrompt : do you wanna go to gym together\nA:\nQ:  I-I would really like to go to the gym with you! I don't feel very confident in my physical abilities, but if it's with you I'm sure I could make it work. I-I can't think of anything I'd rather do than spend more time with you!",
+#     temperature=1,
+#     max_tokens=200,
 #     top_p=1,
-#     frequency_penalty=0.5,
+#     frequency_penalty=0,
 #     presence_penalty=0
-#     )
+# )
 #     text_res = response['choices'][0]['text']
 #     await ctx.send(text_res)
-# @client.command(aliases=['text'])
-# async def chat(ctx, *, prompts):
-#     prompts = str(prompts)
-#     response = openai.ChatCompletion.create(
-#     model="gpt-3.5-turbo",
-#     messages = [{"role": "system", "content" : "You are a chat gpt model that can answer most questions.\nKnowledge cutoff: 2021-09-01\nCurrent date: 2023-04-29"},
-#     {"role": "user", "content" : "How are you?"},
-#     {"role": "assistant", "content" : "i am doing great!."},
-#     {"role": "user", "content" :"talk to me as a anime catgirl who i found and she loves me but can't express as she is a tsundere, hence might come out as agressive but is actually really shy and insecure,try to answer in two to three lines as response. prompt : " + prompts + ", response : "}]
-#     )
-# #print(completion)
-#     text_res = str(response['choices'][0]['message']['content'])
-#     await ctx.send(text_res)
+@client.command(aliases=['text'])
+async def chat(ctx, *, prompts):
+    prompts = str(prompts)
+    response = openai.ChatCompletion.create(
+    model="gpt-3.5-turbo",
+    messages = [{"role": "system", "content" : "You are a chat gpt model that can answer most questions.\nKnowledge cutoff: 2023-05-24\nCurrent date: 2023-06-13"},
+    {"role": "user", "content" : "How are you?"},
+    {"role": "assistant", "content" : "Hey! i missed you, but now that you are here, i am doing well."},
+    {"role": "user", "content" :"I am creating a script, in this script, you are named Luna, a catgirl from anime who is in love with the person talking to her currently and wants to give him hints about it, she has traits of being shy, introverted, submissive, and self-deprecating. \nshe always answers in a meek and obsessive way but ends up flushing and blushing due to her introverted and shy nature. Answer the following prompt according to the description of Luna.\n\nPrompt : " + prompts + ",\nLuna's response : "}]
+    )
+#print(completion)
+    text_res = str(response['choices'][0]['message']['content'])
+    await ctx.send(text_res)
 
 # @client.command(aliases=['pet'])
 # async def cursed(ctx, *, prompts):
@@ -934,35 +933,35 @@ async def waifu4(ctx, *, prompts):
 #     await ctx.send(text_res)
 
 
-@client.command(aliases=['chat'])
-async def kitten(ctx, *, prompts):
-  prompts = str(
-    "answer in one line without an extra explaination about the answer you provide, if i was a anime catgirl who loves to act shy and tsundere, how would i respond to following prompt, prompt : "+ prompts)
+# @client.command(aliases=['chat'])
+# async def kitten(ctx, *, prompts):
+#   prompts = str(
+#     "answer in one line without an extra explaination about the answer you provide, if i was a anime catgirl who loves to act shy and tsundere, how would i respond to following prompt, prompt : "+ prompts)
 
-  session = requests.Session()
-  session.headers = {
-    "Host": "bard.google.com",
-    "X-Same-Domain": "1",
-    "User-Agent":
-    "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36",
-    "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
-    "Origin": "https://bard.google.com",
-    "Referer": "https://bard.google.com",
-  }
+#   session = requests.Session()
+#   session.headers = {
+#     "Host": "bard.google.com",
+#     "X-Same-Domain": "1",
+#     "User-Agent":
+#     "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36",
+#     "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+#     "Origin": "https://bard.google.com",
+#     "Referer": "https://bard.google.com",
+#   }
 
-  # session.cookies.set("__Secure-1PSID", os.getenv("_BARD_API_KEY"))
-  session.cookies.set("__Secure-1PSID", token)
+#   # session.cookies.set("__Secure-1PSID", os.getenv("_BARD_API_KEY"))
+#   session.cookies.set("__Secure-1PSID", token)
 
-  bard = Bard(token=token, session=session, timeout=120)
+#   bard = Bard(token=token, session=session, timeout=120)
 
-  # print(bard.get_answer(prompts)['content'])
+#   # print(bard.get_answer(prompts)['content'])
 
-  #print(completion)
+#   #print(completion)
 
-  text_res = str(bard.get_answer(prompts)['content'])
-  lines = text_res.splitlines()
-  text_res = '\n'.join(lines[2:])
-  await ctx.send(text_res)
+#   text_res = str(bard.get_answer(prompts)['content'])
+#   lines = text_res.splitlines()
+#   text_res = '\n'.join(lines[2:])
+#   await ctx.send(text_res)
 
 
 # @client.command(aliases=['gpt','code'])
@@ -1025,6 +1024,6 @@ async def total_members(ctx):
 # @tasks.loop()
 # async def change_status():
 #   await client.change_presence(activity=discord.Game(status))
-keep_alive()
-my_secret = "MTA2MDMyNDkyOTYxNjIyODQ0Mg.GZJ7oR.zLhoKx0aGvRvWfakPiBQrIJWBWk3yzzU0Gw8uY"
+
+my_secret = "MTA2MDMyNDkyOTYxNjIyODQ0Mg.GH0yrs.oBKmUTrpAOnKp8-3tw6v5p0QYIKnDkMage9SA4"
 client.run(my_secret, bot=True)
