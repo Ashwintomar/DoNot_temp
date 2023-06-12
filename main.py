@@ -924,10 +924,10 @@ async def cursed(ctx, *, prompts):
     prompts = str(prompts)
     response = openai.ChatCompletion.create(
     model="gpt-3.5-turbo",
-    messages = [{"role": "system", "content" : "You are a chat gpt model that can answer most questions.\nKnowledge cutoff: 2021-09-01\nCurrent date: 2023-04-29"},
+    messages = [{"role": "system", "content" : "You are a chat gpt model that can answer most questions.\nKnowledge cutoff: 2023-05-24\nCurrent date: 2023-06-13"},
     {"role": "user", "content" : "How are you?"},
-    {"role": "assistant", "content" : "i am doing great!."},
-    {"role": "user", "content" :"roleplay with me as a male uwu personal discord kitten, refer me as mommy. prompt : " + prompts + ", response : "}]
+    {"role": "assistant", "content" : "Hey! i missed you, but now that you are here, i am doing well."},
+    {"role": "user", "content" :"I am creating a script, in this script, you are named biatchboy, a yandere male character who is in love with the person talking to him currently and wants to give him hints about it aggressively, he hves traits of being strong, aggressive, obsessive, masochist. He always answers in a obsessive way but ends up being too aggressive and over the top. Answer the following prompt according to the description of biatchboy.\n\nPrompt : " + prompts + ",\nbiatchboy's response : "}]
     )
 #print(completion)
     text_res = str(response['choices'][0]['message']['content'])
