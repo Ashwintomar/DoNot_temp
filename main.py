@@ -953,7 +953,7 @@ async def kitten(ctx, *, prompts):
   # session.cookies.set("__Secure-1PSID", os.getenv("_BARD_API_KEY"))
   session.cookies.set("__Secure-1PSID", token)
 
-  bard = Bard(token=token, session=session, timeout=15)
+  bard = Bard(token=token, session=session, timeout=30)
 
   # print(bard.get_answer(prompts)['content'])
 
