@@ -971,7 +971,6 @@ async def lucy(ctx, *, prompts):
     text_res = str(response['choices'][0]['message']['content'])
     await ctx.send(text_res)
 
-
 @client.command(aliases=['cloud'])
 async def racist(ctx, *, prompts):
     prompts = str(prompts)
