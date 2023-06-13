@@ -362,15 +362,15 @@ async def slap(message, user: discord.Member):
 #       await message.channel.purge(limit=10)
 
 
-@client.command()
-async def cloud(message):
+#@client.command()
+#async def cloud(message):
   # No infinite bot loops
-  if message.author == client.user or message.author.bot:
-    return
-  mention = message.author.mention
-  response = f"{mention} want to see the omegalul pogchamp pedophile and only real anime girl waifu......here you go"
-  await message.channel.send(response)
-  await message.send(t.random("cute anime girl"))
+  #if message.author == client.user or message.author.bot:
+    #return
+  #mention = message.author.mention
+  #response = f"{mention} want to see the omegalul pogchamp pedophile and only real anime girl waifu......here you go"
+  #await message.channel.send(response)
+  #await message.send(t.random("cute anime girl"))
 
 
 @client.command()
