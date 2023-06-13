@@ -905,7 +905,7 @@ async def waifu4(ctx, *, prompts):
 # )
 #     text_res = response['choices'][0]['text']
 #     await ctx.send(text_res)
-@client.command(aliases=['text'])
+@client.command(aliases=['luna'])
 async def chat(ctx, *, prompts):
     prompts = str(prompts)
     response = openai.ChatCompletion.create(model="gpt-3.5-turbo",
