@@ -304,12 +304,12 @@ async def date(ctx):
     await ctx.channel.send(res)
 
 
-@client.command()
-async def power(ctx):
-    await ctx.channel.send(
-        "https://www.youtube.com/channel/UCPYyI4KDMRXIVCO_UNXd9sw\n Go subscribe!! i know you haven't yet :eye:"
-    )
-    await ctx.send(t.random("anime pouting"))
+# @client.command()
+# async def power(ctx):
+#     await ctx.channel.send(
+#         "https://www.youtube.com/channel/UCPYyI4KDMRXIVCO_UNXd9sw\n Go subscribe!! i know you haven't yet :eye:"
+#     )
+#     await ctx.send(t.random("anime pouting"))
 
 
 @client.command()
