@@ -1,4 +1,5 @@
 import os
+import tweepy
 import random
 import asyncio
 import praw
@@ -24,6 +25,12 @@ import openai
 token = 'XQhx4VhyI4_SmRJ634zKUYXY8O3sDLwMUpHd3DQGG1qVgd2iA7SMMbOIZFfEhJFeEwGRzQ.'
 openai.api_key = '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'
 format = "Date: %Y-%m-%d \nTime : %H:%M:%S"
+# Twitter API credentials
+TWITTER_API_KEY = "pbesIvZIN2eES3yPeuVoxK37C"
+TWITTER_API_SECRET = "NfEoTFD67LGHgVngFxSRk9SveNW3kStpU11JgzBeMSP2m5u2MW"
+TWITTER_ACCESS_TOKEN = "1457296961095172101-OUT2A8ta3RX0Dj718qWtz2RdJUbZC0"
+TWITTER_ACCESS_SECRET = "U4ZUJ3SfSyDKNe3PGG5YbZOJnVsqWnsNSChPqWvuzWQUO"
+
 
 client = commands.Bot(command_prefix='&')
 # definition column
@@ -77,6 +84,30 @@ async def weather(ctx, *, CITY):
     else:
         pass
 
+
+
+@client.command()
+async def tweet(ctx, username):
+    # Authenticate with Twitter API
+    auth = tweepy.OAuthHandler(TWITTER_API_KEY, TWITTER_API_SECRET)
+    auth.set_access_token(TWITTER_ACCESS_TOKEN, TWITTER_ACCESS_SECRET)
+    api = tweepy.API(auth)
+
+    try:
+        # Fetch user's timeline
+        tweets = api.user_timeline(screen_name=username, count=200)
+        
+        if len(tweets) == 0:
+            await ctx.send("No tweets found for the specified user.")
+        else:
+            # Select a random tweet
+            random_tweet = random.choice(tweets)
+            await ctx.send(f"**{random_tweet.user.screen_name}**: {random_tweet.text}")
+            
+    except tweepy.TweepError as e:
+        await ctx.send(f"Error: {str(e)}")
+        
+        
 
 @client.command()
 async def urban(ctx, *, word):
