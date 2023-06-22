@@ -86,6 +86,8 @@ async def weather(ctx, *, CITY):
 
 import json
 from requests_oauthlib import OAuth1Session
+
+# Command to generate a random tweet from a user
 @client.command()
 async def random_tweet(ctx, username):
     try:
@@ -107,15 +109,14 @@ async def random_tweet(ctx, username):
             params=params
         )
         user_data = response.json()
-        user_id = user_data["data"]["id"]
+        user_id = user_data["user"]["id"]
         response = requests.get(
             f"https://api.twitter.com/2/users/{user_id}/tweets",
             headers=headers,
             params=params
         )
         tweet_data = response.json()
-        print(tweet_data)
-      
+
         if "data" in tweet_data and len(tweet_data["data"]) > 0:
             random_tweet = random.choice(tweet_data["data"])
             tweet_text = random_tweet["text"]
