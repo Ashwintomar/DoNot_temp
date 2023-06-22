@@ -104,7 +104,7 @@ async def tweet(ctx, username):
             random_tweet = random.choice(tweets)
             await ctx.send(f"**{random_tweet.user.screen_name}**: {random_tweet.text}")
             
-    except tweepy.TweepError as e:
+    except tweepy.errors.TweepyException as e:
         await ctx.send(f"Error: {str(e)}")
         
         
