@@ -116,7 +116,7 @@ async def random_tweet(ctx, username):
             params=params
         )
         tweet_data = response.json()
-        print(tweet_data)
+        await ctx.send(tweet_data)
         if "data" in tweet_data and len(tweet_data["data"]) > 0:
             random_tweet = random.choice(tweet_data["data"])
             tweet_text = random_tweet["text"]
