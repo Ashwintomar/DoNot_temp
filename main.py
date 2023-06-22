@@ -96,10 +96,10 @@ async def random_tweet(ctx, username):
             "Accept-Encoding": "gzip"
         }
         params = {
-            "tweet.fields": "created_at",
+            "tweet.fields": "text",
             "expansions": "author_id",
             "user.fields": "username",
-            "max_results": 10
+            "max_results": 100
         }
         response = requests.get(
             f"https://api.twitter.com/2/users/by/username/{username}",
@@ -114,10 +114,12 @@ async def random_tweet(ctx, username):
             params=params
         )
         tweet_data = response.json()
-
+        print(tweet_data)
+      
         if "data" in tweet_data and len(tweet_data["data"]) > 0:
             random_tweet = random.choice(tweet_data["data"])
-            await ctx.send(f"**{username}**: {random_tweet['text']}")
+            tweet_text = random_tweet["text"]
+            await ctx.send(f"**{username}**: {tweet_text}")
         else:
             await ctx.send(f"No tweets found for the specified user.")
 
