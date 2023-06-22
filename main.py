@@ -85,27 +85,49 @@ async def weather(ctx, *, CITY):
         pass
 
 
-
-@client.command()
-async def tweet(ctx, username):
-    # Authenticate with Twitter API
-    auth = tweepy.OAuthHandler(TWITTER_API_KEY, TWITTER_API_SECRET)
-    auth.set_access_token(TWITTER_ACCESS_TOKEN, TWITTER_ACCESS_SECRET)
-    api = tweepy.API(auth)
-
+import os
+import requests
+import random
+import json
+from requests_oauthlib import OAuth1Session
+async def random_tweet(ctx, username):
     try:
-        # Fetch user's timeline
-        tweets = api.user_timeline(screen_name=username, count=200)
-        
-        if len(tweets) == 0:
-            await ctx.send("No tweets found for the specified user.")
+        # Use the user's bearer token to make the API request
+        headers = {
+            "Authorization": f"Bearer {TWITTER_ACCESS_TOKEN}",
+            "Content-Type": "application/json",
+            "Accept-Encoding": "gzip"
+        }
+        params = {
+            "tweet.fields": "created_at",
+            "expansions": "author_id",
+            "user.fields": "username",
+            "max_results": 10
+        }
+        response = requests.get(
+            f"https://api.twitter.com/2/users/by/username/{username}",
+            headers=headers,
+            params=params
+        )
+        user_data = response.json()
+        user_id = user_data["data"]["id"]
+        response = requests.get(
+            f"https://api.twitter.com/2/users/{user_id}/tweets",
+            headers=headers,
+            params=params
+        )
+        tweet_data = response.json()
+
+        if "data" in tweet_data and len(tweet_data["data"]) > 0:
+            random_tweet = random.choice(tweet_data["data"])
+            await ctx.send(f"**{username}**: {random_tweet['text']}")
         else:
-            # Select a random tweet
-            random_tweet = random.choice(tweets)
-            await ctx.send(f"**{random_tweet.user.screen_name}**: {random_tweet.text}")
-            
-    except tweepy.errors.TweepyException as e:
+            await ctx.send(f"No tweets found for the specified user.")
+
+    except requests.exceptions.RequestException as e:
         await ctx.send(f"Error: {str(e)}")
+
+
         
         
 
