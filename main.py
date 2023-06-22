@@ -84,12 +84,9 @@ async def weather(ctx, *, CITY):
     else:
         pass
 
-
-import os
-import requests
-import random
 import json
 from requests_oauthlib import OAuth1Session
+@client.command()
 async def random_tweet(ctx, username):
     try:
         # Use the user's bearer token to make the API request
