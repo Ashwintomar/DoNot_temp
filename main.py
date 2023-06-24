@@ -20,6 +20,8 @@ import termcolor
 import requests
 import json
 import openai
+from rule34Py import rule34Py
+
 # temp
 
 token = 'XQhx4VhyI4_SmRJ634zKUYXY8O3sDLwMUpHd3DQGG1qVgd2iA7SMMbOIZFfEhJFeEwGRzQ.'
