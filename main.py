@@ -56,6 +56,7 @@ async def on_ready():
     print("Bot is ready!")
 
 
+
 @client.event
 async def on_member_join(member):
     print(f'{member} has joined the server.')
@@ -128,8 +129,15 @@ async def random_tweet(ctx, username):
         await ctx.send(f"Error: {str(e)}")
 
 
-        
-        
+
+
+@client.command()
+async def rule34(ctx, text):
+    result_random = r34Py.random_post([text])
+    await asyncio.sleep(1)
+    await ctx.send(f'ID: {result_random.id}\nImage: {result_random.image}')
+
+
 
 @client.command()
 async def urban(ctx, *, word):
