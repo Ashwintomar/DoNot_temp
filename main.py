@@ -137,8 +137,8 @@ r34Py = rule34Py()
 async def r34(ctx, text):
     result_random = r34Py.random_post([text])  # Pass the tag as a list
     if result_random:
-        post_id = result_random[0].id
-        image_url = result_random[0].image
+        post_id = result_random.id
+        image_url = result_random.image
         await asyncio.sleep(1)
         await ctx.send(f'ID: {post_id}\nImage: {image_url}')
     else:
