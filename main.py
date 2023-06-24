@@ -135,7 +135,8 @@ async def random_tweet(ctx, username):
 r34Py = rule34Py()
 @client.command()
 async def r34(ctx, text):
-    result_random = r34Py.random_post([text])
+    # result_random = r34Py.random_post(text)
+    result_random = r34Py.search([text], page_id=2, limit=1)
     await asyncio.sleep(1)
     await ctx.send(f'ID: {result_random.id}\nImage: {result_random.image}')
 
