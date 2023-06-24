@@ -135,9 +135,14 @@ async def random_tweet(ctx, username):
 r34Py = rule34Py()
 @client.command()
 async def r34(ctx, text):
-    result_random = r34Py.random_post(text)
-    await asyncio.sleep(1)
-    await ctx.send(f'ID: {result_random.id}\nImage: {result_random.image}')
+    result_random = r34Py.random_post([text])  # Pass the tag as a list
+    if result_random:
+        post_id = result_random[0].id
+        image_url = result_random[0].image
+        await asyncio.sleep(1)
+        await ctx.send(f'ID: {post_id}\nImage: {image_url}')
+    else:
+        await ctx.send("No results found.")
 
 
 
