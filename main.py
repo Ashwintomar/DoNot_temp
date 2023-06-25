@@ -444,14 +444,14 @@ async def slap(message, user: discord.Member):
     # await message.send(t.random("cute anime girl"))
 
 
-@client.command()
-async def meeza(message):
-    if message.author == client.user or message.author.bot:
-        return
-    mention = message.author.mention
-    response = f'{mention} want to see the slav artist....here goes nothing'
-    await message.channel.send(response)
-    await message.send("https://imgur.com/gallery/xjdk7cZ")
+# @client.command()
+# async def meeza(message):
+#     if message.author == client.user or message.author.bot:
+#         return
+#     mention = message.author.mention
+#     response = f'{mention} want to see the slav artist....here goes nothing'
+#     await message.channel.send(response)
+#     await message.send("https://imgur.com/gallery/xjdk7cZ")
 
 
 @client.command(aliases=['parf'])
