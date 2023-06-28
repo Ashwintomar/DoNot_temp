@@ -11,7 +11,6 @@ from itertools import cycle
 import datetime
 import TenGiphPy
 from googletrans import Translator
-from keep_alive import keep_alive
 from datetime import datetime
 from pytz import timezone
 from udpy import UrbanClient
@@ -953,6 +952,101 @@ async def waifu4(ctx, *, prompts):
     await ctx.send(url)
 
 
+
+
+@client.command(aliases=['image5'])
+async def waifu5(ctx, *, prompts):
+    banned_words = [
+        "child", "kid", "rape", "school", "killed", "baby", "infant", "underaged"
+    ]
+
+    for word in banned_words:
+        if word in prompts:
+            await ctx.send("This word is banned.")
+            return
+        else:
+            pass
+    url = "https://api.prodia.com/v1/job"
+    payload = {
+        "prompt": str(prompts),
+        "negative_prompt":
+        "out of frame, lowres, text, error, cropped, worst quality, low quality, jpeg artifacts, ugly, duplicate, morbid, mutilated, out of frame, extra fingers, mutated hands, poorly drawn hands, poorly drawn face, mutation, deformed, blurry, dehydrated, bad anatomy, bad proportions, extra limbs, cloned face, disfigured, gross proportions, malformed limbs, missing arms, missing legs, extra arms, extra legs, fused fingers, too many fingers, long neck, username, watermark, signature",
+        "steps": 30,
+        "model": "mechamix_v10.safetensors [ee685731]"
+    }
+
+    headers = {
+        "accept": "application/json",
+        "content-type": "application/json",
+        "X-Prodia-Key": "38926a3f-a43a-40c9-9b74-aed5b26b5a3f"
+    }
+
+    response = requests.post(url, json=payload, headers=headers)
+    sent = response.json()
+    job = sent["job"]
+    print(job)
+    await asyncio.sleep(30)
+
+    url = f"https://api.prodia.com/v1/job/{job}"
+    headers = {
+        "accept": "application/json",
+        "X-Prodia-Key": "38926a3f-a43a-40c9-9b74-aed5b26b5a3f"
+    }
+
+    response = requests.get(url, headers=headers)
+    recieved = response.json()
+    url = recieved["imageUrl"]
+    await ctx.send(url)
+
+
+
+
+
+
+
+@client.command(aliases=['image6'])
+async def waifu6(ctx, *, prompts):
+    banned_words = [
+        "child", "kid", "rape", "school", "killed", "baby", "infant", "underaged"
+    ]
+
+    for word in banned_words:
+        if word in prompts:
+            await ctx.send("This word is banned.")
+            return
+        else:
+            pass
+    url = "https://api.prodia.com/v1/job"
+    payload = {
+        "prompt": str(prompts),
+        "negative_prompt":
+        "out of frame, lowres, text, error, cropped, worst quality, low quality, jpeg artifacts, ugly, duplicate, morbid, mutilated, out of frame, extra fingers, mutated hands, poorly drawn hands, poorly drawn face, mutation, deformed, blurry, dehydrated, bad anatomy, bad proportions, extra limbs, cloned face, disfigured, gross proportions, malformed limbs, missing arms, missing legs, extra arms, extra legs, fused fingers, too many fingers, long neck, username, watermark, signature",
+        "steps": 30,
+        "model": "shoninsBeautiful_v10.safetensors [25d8c546]"
+    }
+
+    headers = {
+        "accept": "application/json",
+        "content-type": "application/json",
+        "X-Prodia-Key": "38926a3f-a43a-40c9-9b74-aed5b26b5a3f"
+    }
+
+    response = requests.post(url, json=payload, headers=headers)
+    sent = response.json()
+    job = sent["job"]
+    print(job)
+    await asyncio.sleep(30)
+
+    url = f"https://api.prodia.com/v1/job/{job}"
+    headers = {
+        "accept": "application/json",
+        "X-Prodia-Key": "38926a3f-a43a-40c9-9b74-aed5b26b5a3f"
+    }
+
+    response = requests.get(url, headers=headers)
+    recieved = response.json()
+    url = recieved["imageUrl"]
+    await ctx.send(url)
 # @client.command(aliases=['image5'])
 # async def gptimage(ctx, *, prompts):
 #     response = openai.Image.create(
@@ -1262,5 +1356,5 @@ async def total_members(ctx):
 # async def change_status():
 #   await client.change_presence(activity=discord.Game(status))
 
-my_secret = "MTA2MDMyNDkyOTYxNjIyODQ0Mg.GgMQoT.urjG3AWlhCt9QaCfHc9c_CpVb3I_W08k0ylXWA"
+my_secret = "MTA2MDMyNDkyOTYxNjIyODQ0Mg.Gjhr7t.Ax9QyRxiga56-mAKls5sBLvt2lI_PYGEKAqhzo"
 client.run(my_secret, bot=True)
