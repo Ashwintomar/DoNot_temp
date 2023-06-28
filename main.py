@@ -1081,7 +1081,8 @@ async def chat(ctx, *, prompts):
 
 # print(completion)
     text_res = str(response['choices'][0]['message']['content'])
-    await ctx.send(text_res)
+    embed = discord.Embed(title="Luna's Response", description=text_res, color=discord.Color.green())
+    await ctx.send(embed=embed)
 
 
 
@@ -1099,7 +1100,8 @@ async def Scaramouche(ctx, *, prompts):
     }])
 # print(completion)
     text_res = str(response['choices'][0]['message']['content'])
-    await ctx.send(text_res)
+    embed = discord.Embed(title="Scaramouche's Response", description=text_res, color=discord.Color.green())
+    await ctx.send(embed=embed)
 
 
 
@@ -1115,7 +1117,9 @@ async def mommy(ctx, *, prompts):
 
 # print(completion)
     text_res = str(response['choices'][0]['message']['content'])
-    await ctx.send(text_res)
+    embed = discord.Embed(title="Emma's Response", description=text_res, color=discord.Color.green())
+    await ctx.send(embed=embed)
+
 
 
 
@@ -1130,7 +1134,8 @@ async def meeza(ctx, *, prompts):
                                                        }])
 # print(completion)
     text_res = str(response['choices'][0]['message']['content'])
-    await ctx.send(text_res)
+    embed = discord.Embed(title="Meeza's Response", description=text_res, color=discord.Color.green())
+    await ctx.send(embed=embed)
 
 
 
@@ -1154,7 +1159,8 @@ async def cursed(ctx, *, prompts):
 
 # print(completion)
     text_res = str(response['choices'][0]['message']['content'])
-    await ctx.send(text_res)
+    embed = discord.Embed(title="Rizzler's Response", description=text_res, color=discord.Color.green())
+    await ctx.send(embed=embed)
 
 
 @client.command(aliases=['arc'])
@@ -1168,7 +1174,8 @@ async def arctic(ctx, *, prompts):
 
 # print(completion)
     text_res = str(response['choices'][0]['message']['content'])
-    await ctx.send(text_res)
+    embed = discord.Embed(title="Arctic's Response", description=text_res, color=discord.Color.green())
+    await ctx.send(embed=embed)
 
 
 @client.command(aliases=['evil'])
@@ -1181,7 +1188,8 @@ async def lucy(ctx, *, prompts):
 
 # print(completion)
     text_res = str(response['choices'][0]['message']['content'])
-    await ctx.send(text_res)
+    embed = discord.Embed(title="Lucy's Response", description=text_res, color=discord.Color.green())
+    await ctx.send(embed=embed)
 
     
     
@@ -1200,7 +1208,8 @@ async def doped(ctx, *, prompts):
 
 # print(completion)
     text_res = str(response['choices'][0]['message']['content'])
-    await ctx.send(text_res)
+    embed = discord.Embed(title="Aru's Response", description=text_res, color=discord.Color.green())
+    await ctx.send(embed=embed)
     
 
 
@@ -1222,7 +1231,8 @@ async def xiao(ctx, *, prompts):
     )
 
     text_res = str(response['choices'][0]['message']['content'])
-    await ctx.send(text_res)
+    embed = discord.Embed(title="Xiao's Response", description=text_res, color=discord.Color.green())
+    await ctx.send(embed=embed)
 
 
 
@@ -1238,7 +1248,8 @@ async def homework(ctx, *, prompts):
                                                       }])
 # print(completion)
     text_res = str(response['choices'][0]['message']['content'])
-    await ctx.send(text_res)
+    embed = discord.Embed(title="Professor's Response", description=text_res, color=discord.Color.green())
+    await ctx.send(embed=embed)
 
     
 @client.command(aliases=['rp'])
@@ -1250,7 +1261,8 @@ async def roleplay(ctx, *, prompts):
                                                       }])
 # print(completion)
     text_res = str(response['choices'][0]['message']['content'])
-    await ctx.send(text_res)
+    embed = discord.Embed(title="Roleplayer's Response", description=text_res, color=discord.Color.green())
+    await ctx.send(embed=embed)
 
 
 # @client.command(aliases=['cloud'])
