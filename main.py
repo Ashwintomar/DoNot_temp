@@ -814,7 +814,12 @@ async def waifu(ctx, *, prompts):
     response = requests.get(url, headers=headers)
     recieved = response.json()
     url = recieved["imageUrl"]
-    await ctx.send(url)
+    # Create an embed object
+    embed = discord.Embed()
+    embed.set_image(url=url)
+
+    # Send the embed to the channel
+    await ctx.send(embed=embed)
 
 
 @client.command(aliases=['image2'])
@@ -859,7 +864,11 @@ async def waifu2(ctx, *, prompts):
     response = requests.get(url, headers=headers)
     recieved = response.json()
     url = recieved["imageUrl"]
-    await ctx.send(url)
+    embed = discord.Embed()
+    embed.set_image(url=url)
+
+    # Send the embed to the channel
+    await ctx.send(embed=embed)
 
 
 @client.command(aliases=['image3'])
@@ -904,7 +913,11 @@ async def waifu3(ctx, *, prompts):
     response = requests.get(url, headers=headers)
     recieved = response.json()
     url = recieved["imageUrl"]
-    await ctx.send(url)
+    embed = discord.Embed()
+    embed.set_image(url=url)
+
+    # Send the embed to the channel
+    await ctx.send(embed=embed)
 
 
 @client.command(aliases=['image4'])
@@ -949,7 +962,11 @@ async def waifu4(ctx, *, prompts):
     response = requests.get(url, headers=headers)
     recieved = response.json()
     url = recieved["imageUrl"]
-    await ctx.send(url)
+    embed = discord.Embed()
+    embed.set_image(url=url)
+
+    # Send the embed to the channel
+    await ctx.send(embed=embed)
 
 
 
@@ -996,7 +1013,11 @@ async def waifu5(ctx, *, prompts):
     response = requests.get(url, headers=headers)
     recieved = response.json()
     url = recieved["imageUrl"]
-    await ctx.send(url)
+    embed = discord.Embed()
+    embed.set_image(url=url)
+
+    # Send the embed to the channel
+    await ctx.send(embed=embed)
 
 
 
@@ -1046,7 +1067,15 @@ async def waifu6(ctx, *, prompts):
     response = requests.get(url, headers=headers)
     recieved = response.json()
     url = recieved["imageUrl"]
-    await ctx.send(url)
+    embed = discord.Embed()
+    embed.set_image(url=url)
+
+    # Send the embed to the channel
+    await ctx.send(embed=embed)
+    
+    
+    
+    
 # @client.command(aliases=['image5'])
 # async def gptimage(ctx, *, prompts):
 #     response = openai.Image.create(
