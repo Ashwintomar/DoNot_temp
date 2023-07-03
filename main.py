@@ -21,7 +21,7 @@ import json
 import openai
 from rule34Py import rule34Py
 
-# temp
+
 
 token = 'XQhx4VhyI4_SmRJ634zKUYXY8O3sDLwMUpHd3DQGG1qVgd2iA7SMMbOIZFfEhJFeEwGRzQ.'
 openai.api_key = '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'
