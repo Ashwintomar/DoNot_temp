@@ -10,6 +10,7 @@ from discord.ext import commands, tasks
 from itertools import cycle
 import datetime
 import TenGiphPy
+from keep_alive import keep_alive
 from googletrans import Translator
 from datetime import datetime
 from pytz import timezone
@@ -1398,4 +1399,5 @@ async def total_members(ctx):
 #   await client.change_presence(activity=discord.Game(status))
 
 my_secret = "MTA2MDMyNDkyOTYxNjIyODQ0Mg.Gjhr7t.Ax9QyRxiga56-mAKls5sBLvt2lI_PYGEKAqhzo"
+keep_alive()
 client.run(my_secret, bot=True)
