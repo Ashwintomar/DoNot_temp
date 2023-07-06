@@ -1396,7 +1396,7 @@ async def total_members(ctx):
 # async def change_status():
 #   await client.change_presence(activity=discord.Game(status))
 
-my_secret = "MTA2MDMyNDkyOTYxNjIyODQ0Mg.Gyjp62.ERRm2d3vgFylAsqkPDVTsPL_2lOFJMfIUo7jqF"
+my_secret = "MTA2MDMyNDkyOTYxNjIyODQ0Mg.G4Y-dM.OM3kPJnSL7vtm2MrDFFeG9X70d_LPHQdK7BWR0"
 
 keep_alive()
 client.run(my_secret, bot=True)
