@@ -24,7 +24,7 @@ from keep_alive import keep_alive
 
 
 token = 'XQhx4VhyI4_SmRJ634zKUYXY8O3sDLwMUpHd3DQGG1qVgd2iA7SMMbOIZFfEhJFeEwGRzQ.'
-openai.api_key = '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'
+openai.api_key = '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'
 format = "Date: %Y-%m-%d \nTime : %H:%M:%S"
 # Twitter API credentials
 TWITTER_API_KEY = "pbesIvZIN2eES3yPeuVoxK37C"
@@ -1396,7 +1396,7 @@ async def total_members(ctx):
 # async def change_status():
 #   await client.change_presence(activity=discord.Game(status))
 
-my_secret = "MTA2MDMyNDkyOTYxNjIyODQ0Mg.Gyjp62.ERRm2d3vgFylAsqkPDVTsPL_2lOFJMfIUo7jqE"
+my_secret = "MTA2MDMyNDkyOTYxNjIyODQ0Mg.Gyjp62.ERRm2d3vgFylAsqkPDVTsPL_2lOFJMfIUo7jqF"
 
 keep_alive()
 client.run(my_secret, bot=True)
