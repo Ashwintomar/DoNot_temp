@@ -1,3 +1,4 @@
+#Sample code for my actual bot !!
 import os
 import tweepy
 import random
@@ -23,25 +24,25 @@ from rule34Py import rule34Py
 from keep_alive import keep_alive
 
 
-token = 'XQhx4VhyI4_SmRJ634zKUYXY8O3sDLwMUpHd3DQGG1qVgd2iA7SMMbOIZFfEhJFeEwGRzQ.'
-openai.api_key = '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'
+token = ''
+openai.api_key = ''
 format = "Date: %Y-%m-%d \nTime : %H:%M:%S"
 # Twitter API credentials
-TWITTER_API_KEY = "pbesIvZIN2eES3yPeuVoxK37C"
-TWITTER_API_SECRET = "NfEoTFD67LGHgVngFxSRk9SveNW3kStpU11JgzBeMSP2m5u2MW"
-TWITTER_ACCESS_TOKEN = "1457296961095172101-OUT2A8ta3RX0Dj718qWtz2RdJUbZC0"
-TWITTER_ACCESS_SECRET = "U4ZUJ3SfSyDKNe3PGG5YbZOJnVsqWnsNSChPqWvuzWQUO"
+TWITTER_API_KEY = ""
+TWITTER_API_SECRET = ""
+TWITTER_ACCESS_TOKEN = ""
+TWITTER_ACCESS_SECRET = ""
 
 
 client = commands.Bot(command_prefix='&')
 # definition column
 translator = Translator()
-t = TenGiphPy.Tenor("41QVLZGFS5MZ")
+t = TenGiphPy.Tenor("")
 
-red = praw.Reddit(client_id="Iu71QgycjWkEetYzLwzssg",
-                  client_secret="MHNVy7OfJDdr2GzCVEkaddsUZPlejA",
-                  username="Trinity_010",
-                  password="Chun121.ez",
+red = praw.Reddit(client_id="",
+                  client_secret="",
+                  username="",
+                  password="",
                   user_agent="Chrome",
                   check_for_async=False)
 
@@ -71,7 +72,7 @@ async def on_member_leave(member):
 @client.command()
 async def weather(ctx, *, CITY):
     BASE_URL = "https://api.openweathermap.org/data/2.5/weather?"
-    URL = BASE_URL + "q=" + CITY + "&appid=" + "ba58e597d7313d2f318fd96ce25ec595"
+    URL = BASE_URL + "q=" + CITY + "&appid=" + ""
     response = requests.get(URL)
     if response.status_code == 200:
         data = response.json()
@@ -755,7 +756,7 @@ async def spam(ctx):
 # @client.command(aliases=['image'])
 # async def waifu(ctx, *, prompts):
 #     params = {
-#         'access_token': 'f8b32d233b89442e81ef76b79e2edcc9',
+#         'access_token': '',
 #         'model_id': 'RR6lMmw',
 #         'prompt': str(prompts),
 #         'num_images': 1,
@@ -796,7 +797,7 @@ async def waifu(ctx, *, prompts):
     headers = {
         "accept": "application/json",
         "content-type": "application/json",
-        "X-Prodia-Key": "38926a3f-a43a-40c9-9b74-aed5b26b5a3f"
+        "X-Prodia-Key": ""
     }
 
     response = requests.post(url, json=payload, headers=headers)
@@ -808,7 +809,7 @@ async def waifu(ctx, *, prompts):
     url = f"https://api.prodia.com/v1/job/{job}"
     headers = {
         "accept": "application/json",
-        "X-Prodia-Key": "38926a3f-a43a-40c9-9b74-aed5b26b5a3f"
+        "X-Prodia-Key": ""
     }
 
     response = requests.get(url, headers=headers)
@@ -846,7 +847,7 @@ async def waifu2(ctx, *, prompts):
     headers = {
         "accept": "application/json",
         "content-type": "application/json",
-        "X-Prodia-Key": "38926a3f-a43a-40c9-9b74-aed5b26b5a3f"
+        "X-Prodia-Key": ""
     }
 
     response = requests.post(url, json=payload, headers=headers)
@@ -858,7 +859,7 @@ async def waifu2(ctx, *, prompts):
     url = f"https://api.prodia.com/v1/job/{job}"
     headers = {
         "accept": "application/json",
-        "X-Prodia-Key": "38926a3f-a43a-40c9-9b74-aed5b26b5a3f"
+        "X-Prodia-Key": ""
     }
 
     response = requests.get(url, headers=headers)
@@ -895,7 +896,7 @@ async def waifu3(ctx, *, prompts):
     headers = {
         "accept": "application/json",
         "content-type": "application/json",
-        "X-Prodia-Key": "38926a3f-a43a-40c9-9b74-aed5b26b5a3f"
+        "X-Prodia-Key": ""
     }
 
     response = requests.post(url, json=payload, headers=headers)
@@ -907,7 +908,7 @@ async def waifu3(ctx, *, prompts):
     url = f"https://api.prodia.com/v1/job/{job}"
     headers = {
         "accept": "application/json",
-        "X-Prodia-Key": "38926a3f-a43a-40c9-9b74-aed5b26b5a3f"
+        "X-Prodia-Key": ""
     }
 
     response = requests.get(url, headers=headers)
@@ -944,7 +945,7 @@ async def waifu4(ctx, *, prompts):
     headers = {
         "accept": "application/json",
         "content-type": "application/json",
-        "X-Prodia-Key": "38926a3f-a43a-40c9-9b74-aed5b26b5a3f"
+        "X-Prodia-Key": ""
     }
 
     response = requests.post(url, json=payload, headers=headers)
@@ -956,7 +957,7 @@ async def waifu4(ctx, *, prompts):
     url = f"https://api.prodia.com/v1/job/{job}"
     headers = {
         "accept": "application/json",
-        "X-Prodia-Key": "38926a3f-a43a-40c9-9b74-aed5b26b5a3f"
+        "X-Prodia-Key": ""
     }
 
     response = requests.get(url, headers=headers)
@@ -995,7 +996,7 @@ async def waifu5(ctx, *, prompts):
     headers = {
         "accept": "application/json",
         "content-type": "application/json",
-        "X-Prodia-Key": "38926a3f-a43a-40c9-9b74-aed5b26b5a3f"
+        "X-Prodia-Key": ""
     }
 
     response = requests.post(url, json=payload, headers=headers)
@@ -1007,7 +1008,7 @@ async def waifu5(ctx, *, prompts):
     url = f"https://api.prodia.com/v1/job/{job}"
     headers = {
         "accept": "application/json",
-        "X-Prodia-Key": "38926a3f-a43a-40c9-9b74-aed5b26b5a3f"
+        "X-Prodia-Key": ""
     }
 
     response = requests.get(url, headers=headers)
@@ -1049,7 +1050,7 @@ async def waifu6(ctx, *, prompts):
     headers = {
         "accept": "application/json",
         "content-type": "application/json",
-        "X-Prodia-Key": "38926a3f-a43a-40c9-9b74-aed5b26b5a3f"
+        "X-Prodia-Key": ""
     }
 
     response = requests.post(url, json=payload, headers=headers)
@@ -1061,7 +1062,7 @@ async def waifu6(ctx, *, prompts):
     url = f"https://api.prodia.com/v1/job/{job}"
     headers = {
         "accept": "application/json",
-        "X-Prodia-Key": "38926a3f-a43a-40c9-9b74-aed5b26b5a3f"
+        "X-Prodia-Key": ""
     }
 
     response = requests.get(url, headers=headers)
@@ -1114,11 +1115,6 @@ async def chat(ctx, *, prompts):
     await ctx.send(embed=embed)
 
 
-
-
-
-
-
 @client.command(aliases=['cupid'])
 async def arclover(ctx, *, prompts):
     prompts = str(prompts)
@@ -1147,9 +1143,6 @@ async def Scaramouche(ctx, *, prompts):
     await ctx.send(embed=embed)
 
 
-
-
-
 @client.command(aliases=['emma'])
 async def mommy(ctx, *, prompts):
     prompts = str(prompts)
@@ -1164,10 +1157,6 @@ async def mommy(ctx, *, prompts):
     await ctx.send(embed=embed)
 
 
-
-
-
-
 @client.command(aliases=['muz'])
 async def meeza(ctx, *, prompts):
     prompts = str(prompts)
@@ -1178,16 +1167,6 @@ async def meeza(ctx, *, prompts):
     text_res = str(response['choices'][0]['message']['content'])
     embed = discord.Embed(title="Meeza's Response", description=text_res, color=discord.Color.green())
     await ctx.send(embed=embed)
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1410,7 +1389,7 @@ async def total_members(ctx):
 # async def change_status():
 #   await client.change_presence(activity=discord.Game(status))
 
-my_secret = "MTA2MDMyNDkyOTYxNjIyODQ0Mg.GII9aQ.IX0vuwq4Dm4NNei4J_AewxczT1zMItcdM7ZP6s"
+my_secret = ""
 
 keep_alive()
 client.run(my_secret, bot=True)
