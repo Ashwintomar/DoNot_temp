@@ -1,6 +1,6 @@
 # DoNot Bot
 
-![Invite Link](https://discord.com/api/oauth2/authorize?client_id=1060324929616228442&permissions=8&scope=bot)
+[Invite Link](https://discord.com/api/oauth2/authorize?client_id=1060324929616228442&permissions=8&scope=bot)
 
 ## Introduction
 
