@@ -16,11 +16,7 @@ List the key features of your bot. For example:
 - **Scalability:** Your bot's ability to handle a growing user base.
 - **Games and utilities:** Funny random commands and games like rock paper scissors to keep people busy.
 
-
-
 ## Installation
-
-
 
 ```bash
 # Clone the repository
